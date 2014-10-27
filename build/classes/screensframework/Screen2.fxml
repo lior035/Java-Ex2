@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 
+/*-
+ * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.-
+ *-
+ * Copyright (c) 2013 Oracle and/or its affiliates. All rights reserved.-
+ *-
+ * The contents of this file are subject to the terms of either the GNU-
+ * General Public License Version 2 only ("GPL") or the Common Development-
+ * and Distribution License("CDDL") (collectively, the "License"). You-
+ * may not use this file except in compliance with the License. You can-
+ * obtain a copy of the License at-
+ * https://glassfish.dev.java.net/public/CDDL+GPL_1_1.html-
+ * or packager/legal/LICENSE.txt.  See the License for the specific-
+ * language governing permissions and limitations under the License.-
+ *-
+ * When distributing the software, include this License Header Notice in each-
+ * file and include the License file at packager/legal/LICENSE.txt.-
+ *-
+ * GPL Classpath Exception:-
+ * Oracle designates this particular file as subject to the "Classpath"-
+ * exception as provided by Oracle in the GPL Version 2 section of the License-
+ * file that accompanied this code.-
+ *-
+ * Modifications:-
+ * If applicable, add the following below the License Header, with the fields-
+ * enclosed by brackets [] replaced by your own identifying information:-
+ * "Portions Copyright [year] [name of copyright owner]"-
+ *-
+ * Contributor(s):-
+ * If you wish your version of this file to be governed by only the CDDL or-
+ * only the GPL Version 2, indicate your decision by adding "[Contributor]-
+ * elects to include this software in this distribution under the [CDDL or GPL-
+ * Version 2] license."  If you don't indicate a single choice of license, a-
+ * recipient has the option to distribute your version of this file under-
+ * either the CDDL, the GPL Version 2 or to extend the choice of license to-
+ * its licensees as provided above.  However, if you add GPL Version 2 code-
+ * and therefore, elected the GPL Version 2 license, then the option applies-
+ * only if the new code is made subject to such option by the copyright-
+ * holder.-
+ */ -
+-->
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.collections.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" minHeight="533.0" minWidth="843.0" prefHeight="533.0" prefWidth="843.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="screensframework.Screen2Controller">
+  <children>
+    <MenuBar layoutX="0.0" layoutY="0.0" prefHeight="37.0" prefWidth="843.0">
+      <menus>
+        <Menu mnemonicParsing="false" text="Game">
+          <items>
+            <MenuItem mnemonicParsing="false" text="New Game" />
+            <MenuItem mnemonicParsing="false" text="Load Game" />
+            <MenuItem mnemonicParsing="false" text="Save" />
+            <MenuItem mnemonicParsing="false" onAction="#getFilePath" text="Save As" />
+            <MenuItem mnemonicParsing="false" text="Exit" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Help">
+          <items>
+            <MenuItem mnemonicParsing="false" text="Game rules" />
+            <MenuItem mnemonicParsing="false" text="About us" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+    <ImageView id="form-3" disable="false" fitHeight="130.0" fitWidth="125.0" focusTraversable="false" layoutX="711.0" layoutY="37.0" opacity="1.0" pickOnBounds="true">
+      <image>
+        <Image url="@../Pictures/form-3.png" preserveRatio="true" smooth="true" />
+      </image>
+    </ImageView>
+    <VBox prefHeight="496.0" prefWidth="843.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="3.0" AnchorPane.rightAnchor="-3.0" AnchorPane.topAnchor="37.0">
+      <children>
+        <Label prefHeight="26.0" prefWidth="369.0" text="To get you started, please fill the following details: ">
+          <VBox.margin>
+            <Insets left="10.0" fx:id="x1" />
+          </VBox.margin>
+        </Label>
+        <HBox prefHeight="37.0" prefWidth="355.0" spacing="50.0">
+          <children>
+            <Label prefHeight="26.0" prefWidth="204.0" text="Game Name:" HBox.margin="$x1" />
+            <TextField prefWidth="200.0" />
+          </children>
+        </HBox>
+        <HBox prefHeight="37.0" prefWidth="355.0" spacing="50.0">
+          <children>
+            <Label prefHeight="26.0" prefWidth="204.0" text="Board Size:">
+              <HBox.margin>
+                <Insets left="10.0" fx:id="x1" />
+              </HBox.margin>
+            </Label>
+            <ComboBox>
+              <items>
+                <FXCollections fx:factory="observableArrayList">
+                  <String fx:value="5x5" />
+                  <String fx:value="6x6" />
+                  <String fx:value="7x7" />
+                  <String fx:value="8x8" />
+                </FXCollections>
+              </items>
+            </ComboBox>
+          </children>
+          <padding>
+            <Insets />
+          </padding>
+        </HBox>
+        <HBox prefHeight="37.0" prefWidth="355.0" spacing="50.0">
+          <children>
+            <Label prefHeight="26.0" prefWidth="204.0" text="Number Of Players:">
+              <HBox.margin>
+                <Insets left="10.0" fx:id="x1" />
+              </HBox.margin>
+            </Label>
+            <Slider blockIncrement="1.0" majorTickUnit="1.0" max="4.0" min="2.0" minorTickCount="0" prefHeight="37.0" prefWidth="200.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="3.0" />
+          </children>
+          <padding>
+            <Insets />
+          </padding>
+        </HBox>
+        <HBox prefHeight="98.0" prefWidth="515.0" spacing="10.0">
+          <children>
+            <Label prefWidth="218.0" text="Players Information:">
+              <HBox.margin>
+                <Insets left="10.0" fx:id="x1" />
+              </HBox.margin>
+            </Label>
+            <VBox prefHeight="84.0" prefWidth="100.0">
+              <children>
+                <Label prefHeight="30.999900000002526" prefWidth="75.99990000000253" text="Player #" />
+                <Label prefHeight="27.0" prefWidth="76.0" text="Name" />
+                <Label prefHeight="31.0" prefWidth="76.0" text="Type" />
+              </children>
+              <padding>
+                <Insets left="30.0" />
+              </padding>
+            </VBox>
+            <VBox prefHeight="98.0" prefWidth="119.0">
+              <children>
+                <Label prefHeight="26.0" prefWidth="369.0" text="Player 1:" textAlignment="JUSTIFY" textFill="BLACK" />
+                <TextField prefHeight="31.0" prefWidth="100.0" text="" />
+                <ChoiceBox prefWidth="119.0">
+                  <items>
+                    <FXCollections fx:factory="observableArrayList">
+                      <String fx:value="Human" />
+                      <String fx:value="Computer" />
+                    </FXCollections>
+                  </items>
+                </ChoiceBox>
+              </children>
+            </VBox>
+            <VBox prefHeight="98.0" prefWidth="106.0">
+              <children>
+                <Label prefHeight="26.0" prefWidth="369.0" text="Player 2:" textAlignment="JUSTIFY" textFill="BLACK" />
+                <TextField prefHeight="31.0" prefWidth="91.9998779296875" text="" />
+                <ChoiceBox prefWidth="106.0">
+                  <items>
+                    <FXCollections fx:factory="observableArrayList">
+                      <String fx:value="Human" />
+                      <String fx:value="Computer" />
+                    </FXCollections>
+                  </items>
+                </ChoiceBox>
+              </children>
+            </VBox>
+            <VBox prefHeight="98.0" prefWidth="105.0">
+              <children>
+                <Label prefHeight="26.0" prefWidth="369.0" text="Player 3:" textAlignment="JUSTIFY" textFill="BLACK" />
+                <TextField prefHeight="31.0" prefWidth="100.0" text="" />
+                <ChoiceBox prefWidth="106.0">
+                  <items>
+                    <FXCollections fx:factory="observableArrayList">
+                      <String fx:value="Human" />
+                      <String fx:value="Computer" />
+                    </FXCollections>
+                  </items>
+                </ChoiceBox>
+              </children>
+            </VBox>
+            <VBox prefHeight="98.0" prefWidth="111.0">
+              <children>
+                <Label prefHeight="26.0" prefWidth="369.0" text="Player 4:" textAlignment="JUSTIFY" textFill="BLACK" />
+                <TextField prefHeight="31.0" prefWidth="100.0" text="" />
+                <ChoiceBox prefWidth="111.0">
+                  <items>
+                    <FXCollections fx:factory="observableArrayList">
+                      <String fx:value="Human" />
+                      <String fx:value="Computer" />
+                    </FXCollections>
+                  </items>
+                </ChoiceBox>
+              </children>
+            </VBox>
+          </children>
+        </HBox>
+        <HBox prefHeight="37.0" prefWidth="355.0" spacing="50.0">
+          <children>
+            <Label prefHeight="26.0" prefWidth="204.0" text="Number of soldiers to win:">
+              <HBox.margin>
+                <Insets left="10.0" fx:id="x1" />
+              </HBox.margin>
+            </Label>
+            <Slider blockIncrement="1.0" majorTickUnit="1.0" max="4.0" min="2.0" minorTickCount="0" prefHeight="37.0" prefWidth="200.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="3.0" />
+          </children>
+          <padding>
+            <Insets />
+          </padding>
+        </HBox>
+        <HBox prefHeight="37.0" prefWidth="862.0" spacing="40.0">
+          <children>
+            <Label prefHeight="26.0" prefWidth="217.0" text="Number of snakes/ladders:">
+              <HBox.margin>
+                <Insets left="10.0" fx:id="x1" />
+              </HBox.margin>
+            </Label>
+            <Slider blockIncrement="1.0" majorTickUnit="1.0" max="8.0" min="4.0" minorTickCount="0" prefHeight="37.0" prefWidth="200.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="6.0" />
+          </children>
+          <padding>
+            <Insets />
+          </padding>
+        </HBox>
+        <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#goToScreen3" text="Start!" textAlignment="JUSTIFY" textFill="BLACK">
+          <VBox.margin>
+            <Insets left="350.0" top="30.0" />
+          </VBox.margin>
+        </Button>
+      </children>
+    </VBox>
+  </children>
+</AnchorPane>
